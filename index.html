@@ -1,6 +1,11 @@
-Отлично, обновляю: встроил онлайн-запись через виджет (Cal.com или Yclients — выбирается в CONFIG), убрал WhatsApp как основной способ записи, добавил секцию с отзывами (готов к подстановке реальных цитат с Яндекс/2ГИС) и галерею кабинета. Ниже — полный HTML (одна страница), все ссылки рабочие. Вам останется подставить ваш booking‑линк и отзывы/фото.
+Супер, подключу источник 2ГИС и сайт ren59.clients.site и подготовлю блок отзывов/галерею. Важно: я не могу открыть эти ссылки прямо в чате, поэтому не стану подставлять «реальные» цитаты без вашего текста. Ниже — обновленный сайт с:
+- Виджетом онлайн-записи (Cal.com или Yclients — переключается в CONFIG).
+- Ссылками на ваши источники отзывов: ren59.clients.site и конкретная страница 2ГИС.
+- Плейсхолдерами для 3–6 реальных цитат и 4–6 фото кабинета (нужно вставить ваши тексты и ссылки).
 
-Важно: пришлите ссылку на вашу страницу записи Cal.com или Yclients, а также 3–6 цитат из Яндекс/2ГИС и 4–6 фото кабинета — я подставлю за вас. Пока стоят плейсхолдеры.
+Пришлите 3–6 цитат (текст, автор/инициалы, оценка, ссылка на источник) и 4–6 ссылок на фото — я сразу подставлю их за вас.
+
+Код страницы (скопируйте как index.html):
 
 ```html
 <!DOCTYPE html>
@@ -248,8 +253,9 @@
         <h2 class="sec-title">Отзывы</h2>
         <div id="reviewsGrid" class="reviews"></div>
         <p class="muted" style="margin-top:10px">
-          Источники: <a id="yandexLink" href="https://yandex.ru/maps/50/perm/" target="_blank" rel="noopener">Яндекс Карты</a> •
-          <a id="gisLink" href="https://2gis.ru/perm" target="_blank" rel="noopener">2ГИС</a>
+          Источники:
+          <a id="renLink" href="https://ren59.clients.site/" target="_blank" rel="noopener">Сайт REN59</a> •
+          <a id="gisLink" href="https://2gis.ru/perm/inside/2252435468854063/firm/70000001040324976/tab/reviews?m=56.224067%2C58.011422%2F17.27" target="_blank" rel="noopener">2ГИС</a>
         </p>
       </div>
     </section>
@@ -257,10 +263,8 @@
     <section id="gallery">
       <div class="container">
         <h2 class="sec-title">Кабинет</h2>
-        <div class="gallery" id="galleryGrid">
-          <!-- Галерея генерируется из GALLERY в JS -->
-        </div>
-        <p class="muted" style="margin-top:10px">Реальные фото кабинета: уютное пространство, отходы, вода, одноразовые материалы.</p>
+        <div class="gallery" id="galleryGrid"></div>
+        <p class="muted" style="margin-top:10px">Реальные фото кабинета (уютное пространство, чистота, одноразовые материалы, вода).</p>
       </div>
     </section>
 
@@ -365,7 +369,7 @@
           <iframe id="bookingIframe" title="Онлайн-запись"></iframe>
         </div>
         <p class="muted" style="margin-top:10px">
-          Если не нашли удобное время — напишите: 
+          Если не нашли удобное время — напишите:
           <a href="https://wa.me/79990001122" target="_blank" rel="noopener">WhatsApp</a> •
           <a href="mailto:hello@ren59.ru?subject=%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D0%BE%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B8">Email</a>
         </p>
@@ -455,9 +459,8 @@
     }],
     "sameAs": [
       "https://wa.me/79990001122",
-      "https://yandex.ru/maps/50/perm/",
-      "https://2gis.ru/perm",
-      "https://vk.com"
+      "https://ren59.clients.site/",
+      "https://2gis.ru/perm/inside/2252435468854063/firm/70000001040324976/tab/reviews?m=56.224067%2C58.011422%2F17.27"
     ],
     "hasOfferCatalog": {
       "@type":"OfferCatalog",
@@ -476,70 +479,65 @@
     // Выберите провайдера онлайн-записи и вставьте ссылку:
     const CONFIG = {
       bookingProvider: 'cal', // 'cal' или 'yclients'
-      calLink: 'https://cal.com/', // Замените на вашу ссылку Cal.com, например: 'https://cal.com/ren59/60min'
-      yclientsUrl: 'https://www.yclients.com/', // Замените на вашу страницу записи Yclients
+      calLink: 'https://cal.com/', // Пример: 'https://cal.com/ren59/60min'
+      yclientsUrl: 'https://www.yclients.com/', // Пример: 'https://nNNNN.yclients.com/company/ID/record-type'
       siteUrl: 'https://ren59.ru',
-      yandexReviewsUrl: 'https://yandex.ru/maps/50/perm/',
-      gisReviewsUrl: 'https://2gis.ru/perm'
+      renReviewsUrl: 'https://ren59.clients.site/',
+      gisReviewsUrl: 'https://2gis.ru/perm/inside/2252435468854063/firm/70000001040324976/tab/reviews?m=56.224067%2C58.011422%2F17.27'
     };
 
-    // ========= REVIEWS (замените на реальные цитаты и ссылки) =========
+    // ========= REVIEWS =========
+    // Вставьте сюда 3–6 реальных отзывов (цитата, инициалы, звезды, ссылка на конкретную карточку/комментарий).
+    // Пример элемента:
+    // {
+    //   author: "Ирина К.",
+    //   stars: 5,
+    //   text: "Цитата из отзыва...",
+    //   sourceName: "2ГИС",
+    //   sourceUrl: "https://2gis.ru/.../tab/reviews?...#reviewId=XXXX"
+    // }
     const REVIEWS = [
-      {
-        author: "А.",
-        stars: 5,
-        text: "После первой сессии стало легче дышать и двигаться. Глубоко, но без боли.",
-        sourceName: "Яндекс Карты",
-        sourceUrl: "https://yandex.ru/maps/50/perm/"
-      },
-      {
-        author: "Е.",
-        stars: 5,
-        text: "После спорта всегда иду к Евгению: точечно снимает скованность, отличный эффект.",
-        sourceName: "2ГИС",
-        sourceUrl: "https://2gis.ru/perm"
-      },
-      {
-        author: "К.",
-        stars: 5,
-        text: "Моделирующий — супер: уходит отёчность, тело ощущается легче.",
-        sourceName: "Яндекс Карты",
-        sourceUrl: "https://yandex.ru/maps/50/perm/"
-      }
+      // TODO: вставьте реальные отзывы ниже
+      // { author: "А.", stars: 5, text: "Глубоко, но без боли. Уже после первой сессии легче.", sourceName: "Сайт REN59", sourceUrl: CONFIG.renReviewsUrl },
+      // { author: "Е.", stars: 5, text: "После спорта — только сюда. Снимает скованность точно.", sourceName: "2ГИС", sourceUrl: CONFIG.gisReviewsUrl },
     ];
 
-    // ========= GALLERY (замените на реальные фото кабинета) =========
+    // ========= GALLERY =========
+    // Замените на реальные фото кабинета (webp/jpg 1600px+, горизонтальные).
     const GALLERY = [
-      {src:"https://images.unsplash.com/photo-1612152607435-8cd7fe46b8f3?auto=format&fit=crop&w=1200&q=80", alt:"Кабинет — вид 1"},
-      {src:"https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=1200&q=80", alt:"Кабинет — вид 2"},
-      {src:"https://images.unsplash.com/photo-1573878735867-4c3473cc7793?auto=format&fit=crop&w=1200&q=80", alt:"Кабинет — детали"},
-      {src:"https://images.unsplash.com/photo-1580281657527-47e2d9fb1ba8?auto=format&fit=crop&w=1200&q=80", alt:"Кабинет — зона ожидания"},
-      {src:"https://images.unsplash.com/photo-1609842059514-30c75b34d54f?auto=format&fit=crop&w=1200&q=80", alt:"Атмосфера и свет"},
-      {src:"https://images.unsplash.com/photo-1540202404-0a8a3c868911?auto=format&fit=crop&w=1200&q=80", alt:"Чистота и порядок"}
+      // Примеры (плейсхолдеры):
+      {src:"https://images.unsplash.com/photo-1612152607435-8cd7fe46b8f3?auto=format&fit=crop&w=1600&q=80", alt:"Кабинет — вид 1"},
+      {src:"https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=1600&q=80", alt:"Кабинет — вид 2"},
+      {src:"https://images.unsplash.com/photo-1573878735867-4c3473cc7793?auto=format&fit=crop&w=1600&q=80", alt:"Кабинет — детали"}
     ];
 
     // ========= INIT =========
     const year = document.getElementById('y');
     if (year) year.textContent = new Date().getFullYear();
 
-    // Подставляем ссылки на источники отзывов
-    document.getElementById('yandexLink').href = CONFIG.yandexReviewsUrl;
+    // Подставляем ссылки на источники
+    document.getElementById('renLink').href = CONFIG.renReviewsUrl;
     document.getElementById('gisLink').href = CONFIG.gisReviewsUrl;
 
     // Рендер отзывов
     const reviewsGrid = document.getElementById('reviewsGrid');
-    function starIcons(n){
-      return '★'.repeat(n) + '☆'.repeat(5-n);
+    function starIcons(n){ return '★'.repeat(n) + '☆'.repeat(5-n); }
+    if (REVIEWS.length === 0) {
+      const el = document.createElement('p');
+      el.className = 'muted';
+      el.textContent = 'Скоро здесь появятся отзывы из 2ГИС и с сайта.';
+      reviewsGrid.parentNode.insertBefore(el, reviewsGrid.nextSibling);
+    } else {
+      REVIEWS.forEach(r=>{
+        const el = document.createElement('div');
+        el.className = 'quote';
+        el.innerHTML = `
+          <p>«${r.text}»</p>
+          <p class="muted">— ${r.author}, ${starIcons(r.stars)} <a href="${r.sourceUrl}" target="_blank" rel="noopener">${r.sourceName}</a></p>
+        `;
+        reviewsGrid.appendChild(el);
+      });
     }
-    REVIEWS.forEach(r=>{
-      const el = document.createElement('div');
-      el.className = 'quote';
-      el.innerHTML = `
-        <p>«${r.text}»</p>
-        <p class="muted">— ${r.author}, ${starIcons(r.stars)} <a href="${r.sourceUrl}" target="_blank" rel="noopener">${r.sourceName}</a></p>
-      `;
-      reviewsGrid.appendChild(el);
-    });
 
     // Рендер галереи
     const galleryGrid = document.getElementById('galleryGrid');
@@ -559,7 +557,6 @@
       } else if (CONFIG.bookingProvider === 'yclients' && CONFIG.yclientsUrl && CONFIG.yclientsUrl !== 'https://www.yclients.com/'){
         bookingIframe.src = CONFIG.yclientsUrl;
       } else {
-        // Фолбек — открываем сайт провайдера, чтобы ссылка не была «битой»
         bookingIframe.src = CONFIG.bookingProvider === 'yclients' ? 'https://www.yclients.com/' : 'https://cal.com/';
       }
     }
@@ -581,10 +578,10 @@
 </html>
 ```
 
-Что осталось подставить с вашей стороны (кидайте — сделаю сам):
-- Ссылка на расписание:
-  - Cal.com: отправьте ссылку формата https://cal.com/username/30min (или другой слот).
-  - Yclients: пришлите публичный URL онлайн-записи.
-- Реальные отзывы: 3–6 цитат + ссылки на конкретные карточки в Яндекс/2ГИС. Я подставлю в массив REVIEWS.
-- Фото кабинета: 4–6 ссылок (Google Drive/Яндекс.Диск/облако) или сразу webp/jpg — подставлю в GALLERY. Лучше горизонтальные 1600px+, webp.
-- При желании добавлю виджет Яндекс.Карт с точным адресом и кнопкой «Построить маршрут».
+Что нужно от вас (кидайте — вставлю сам и верну финальный файл):
+- Ссылка на онлайн-запись:
+  - Cal.com (формат: https://cal.com/username/30min)
+  - Yclients (публичный URL записи)
+- 3–6 цитат с источниками:
+  - текст, инициалы/имя, оценка (1–5), ссылка на оригинал (ren59.clients.site или 2ГИС — можно на конкретный отзыв, либо на страницу с вкладкой «Отзывы»)
+- 4–6 фото кабинета (лучше webp 1600px+, горизонтальные), ссылки на файлы.
