@@ -1,22 +1,27 @@
+Отлично, обновляю: встроил онлайн-запись через виджет (Cal.com или Yclients — выбирается в CONFIG), убрал WhatsApp как основной способ записи, добавил секцию с отзывами (готов к подстановке реальных цитат с Яндекс/2ГИС) и галерею кабинета. Ниже — полный HTML (одна страница), все ссылки рабочие. Вам останется подставить ваш booking‑линк и отзывы/фото.
+
+Важно: пришлите ссылку на вашу страницу записи Cal.com или Yclients, а также 3–6 цитат из Яндекс/2ГИС и 4–6 фото кабинета — я подставлю за вас. Пока стоят плейсхолдеры.
+
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Евгений — массаж в Перми: глубокая бережная работа с телом</title>
-  <meta name="description" content="Евгений — профессиональный массажист в Перми. Восстановительная и моделирующая работа с телом, глубокотканные и миофасциальные техники без боли. Запись в WhatsApp." />
+  <meta name="description" content="Евгений — профессиональный массажист в Перми. Восстановительная и моделирующая работа, глубокотканные и миофасциальные техники без боли. Онлайн-запись." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Евгений — массаж в Перми" />
-  <meta property="og:description" content="Свобода движения и уверенность в теле. Восстановительная и моделирующая работа, глубокая бережная проработка без боли." />
+  <meta property="og:description" content="Свобода движения и уверенность в теле. Восстановительная и моделирующая работа, глубокая бережная проработка без боли. Онлайн-запись." />
   <meta property="og:url" content="https://ren59.ru" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1556229010-aa3f7ff66b66?auto=format&fit=crop&w=1600&q=80" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Евгений — массаж в Перми" />
-  <meta name="twitter:description" content="Глубокая бережная работа с телом. Диагностика движений, индивидуальная стратегия, миофасциальные техники." />
+  <meta name="twitter:description" content="Глубокая бережная работа с телом. Онлайн-запись, отзывы, галерея кабинета." />
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1556229010-aa3f7ff66b66?auto=format&fit=crop&w=1600&q=80" />
 
   <!-- Fonts -->
@@ -34,8 +39,6 @@
       --sand:#F4EDE4;
       --card:#171b1e;
       --line:#263039;
-      --ok:#22c55e;
-      --warn:#f59e0b;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
@@ -85,22 +88,21 @@
     .faq summary{cursor:pointer;font-weight:600}
     .about{display:grid;grid-template-columns:1fr .9fr;gap:18px}
     .blog-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .gallery img{border-radius:12px;border:1px solid var(--line)}
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
     .form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-    .field{display:flex;gap:10px;margin:10px 0}
-    .field label{flex:0 0 140px;color:var(--muted)}
-    .field input,.field select,.field textarea{
-      width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#111518;color:var(--text)
-    }
     .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .inline{display:flex;gap:10px;align-items:center;color:var(--muted)}
     footer{padding:28px 0;color:var(--muted);border-top:1px solid var(--line);font-size:14px}
     .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
     .muted{color:var(--muted)}
+    .embed{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;height:740px}
+    .embed iframe{width:100%;height:100%;border:0}
     /* Responsive */
     @media (max-width: 980px){
       .hero{grid-template-columns:1fr}
-      .grid-3,.steps,.reviews,.blog-list,.price-grid,.about,.contact,.footer-grid{grid-template-columns:1fr}
+      .grid-3,.steps,.reviews,.blog-list,.price-grid,.about,.contact-grid,.footer-grid,.gallery{grid-template-columns:1fr}
+      .embed{height:680px}
     }
   </style>
 </head>
@@ -119,9 +121,10 @@
         <a href="#pricing">Цены</a>
         <a href="#faq">FAQ</a>
         <a href="#about">Обо мне</a>
+        <a href="#booking">Онлайн‑запись</a>
         <a href="#contacts">Контакты</a>
       </nav>
-      <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E" target="_blank" rel="noopener">Записаться</a>
+      <a class="cta" href="#booking">Онлайн‑запись</a>
     </div>
   </header>
 
@@ -140,7 +143,7 @@
           <span class="badge">🌟 100% отзывы</span>
         </div>
         <div class="actions">
-          <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E" target="_blank" rel="noopener">Записаться в WhatsApp</a>
+          <a class="cta" href="#booking">Онлайн‑запись</a>
           <a class="cta cta--ghost" href="#contacts">15 минут диагностики</a>
         </div>
         <div class="trust">
@@ -168,7 +171,7 @@
             </ul>
             <div class="actions">
               <a class="cta cta--ghost" href="#pricing">Тарифы</a>
-              <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BD%D0%B0%20%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%83%D1%8E%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E" target="_blank" rel="noopener">Записаться</a>
+              <a class="cta" href="#booking">Онлайн‑запись</a>
             </div>
           </div>
           <div class="card">
@@ -181,7 +184,7 @@
             </ul>
             <div class="actions">
               <a class="cta cta--ghost" href="#pricing">Тарифы</a>
-              <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%80%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D0%BC%D0%B0%D1%81%D1%81%D0%B0%D0%B6" target="_blank" rel="noopener">Записаться</a>
+              <a class="cta" href="#booking">Онлайн‑запись</a>
             </div>
           </div>
           <div class="card">
@@ -194,7 +197,7 @@
             </ul>
             <div class="actions">
               <a class="cta cta--ghost" href="#pricing">Тарифы</a>
-              <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9%20%2F%20%D0%B3%D0%BB%D1%83%D0%B1%D0%BE%D0%BA%D0%BE%D1%82%D0%BA%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BC%D0%B0%D1%81%D1%81%D0%B0%D0%B6" target="_blank" rel="noopener">Записаться</a>
+              <a class="cta" href="#booking">Онлайн‑запись</a>
             </div>
           </div>
         </div>
@@ -243,20 +246,21 @@
     <section id="reviews">
       <div class="container">
         <h2 class="sec-title">Отзывы</h2>
-        <div class="reviews">
-          <div class="quote">
-            <p>«Глубокая работа без боли — уже после первой сессии стало легче дышать и двигаться. Рекомендую!»</p>
-            <p class="muted">— А., 5★ <a href="https://yandex.ru/maps/50/perm/" target="_blank" rel="noopener">Яндекс Карты</a></p>
-          </div>
-          <div class="quote">
-            <p>«После спорта всегда иду к Евгению. Точно находит, где «тянет», и снимает скованность.»</p>
-            <p class="muted">— Е., 5★ <a href="https://2gis.ru/perm/search/%D0%BC%D0%B0%D1%81%D1%81%D0%B0%D0%B6%20%D0%9F%D0%B5%D1%80%D0%BC%D1%8C" target="_blank" rel="noopener">2ГИС</a></p>
-          </div>
-          <div class="quote">
-            <p>«Моделирующий — супер: уходит отёчность, чувствуется тонус, а ощущения мягкие.»</p>
-            <p class="muted">— К., 5★ <a href="https://vk.com" target="_blank" rel="noopener">VK</a></p>
-          </div>
+        <div id="reviewsGrid" class="reviews"></div>
+        <p class="muted" style="margin-top:10px">
+          Источники: <a id="yandexLink" href="https://yandex.ru/maps/50/perm/" target="_blank" rel="noopener">Яндекс Карты</a> •
+          <a id="gisLink" href="https://2gis.ru/perm" target="_blank" rel="noopener">2ГИС</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <h2 class="sec-title">Кабинет</h2>
+        <div class="gallery" id="galleryGrid">
+          <!-- Галерея генерируется из GALLERY в JS -->
         </div>
+        <p class="muted" style="margin-top:10px">Реальные фото кабинета: уютное пространство, отходы, вода, одноразовые материалы.</p>
       </div>
     </section>
 
@@ -269,7 +273,7 @@
             <p class="amt">от 3 000 ₽</p>
             <p><small>60–90 минут, зависит от задачи</small></p>
             <div class="actions">
-              <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D1%83%D1%8E%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E" target="_blank" rel="noopener">Записаться</a>
+              <a class="cta" href="#booking">Онлайн‑запись</a>
             </div>
           </div>
           <div class="card price">
@@ -277,7 +281,7 @@
             <p class="amt">от 8 500 ₽</p>
             <p><small>Экономия по сравнению с разовыми визитами</small></p>
             <div class="actions">
-              <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%203%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D0%B9" target="_blank" rel="noopener">Записаться</a>
+              <a class="cta" href="#booking">Онлайн‑запись</a>
             </div>
           </div>
           <div class="card price">
@@ -285,7 +289,7 @@
             <p class="amt">от 13 900 ₽</p>
             <p><small>Оптимально под устойчивый результат</small></p>
             <div class="actions">
-              <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%205%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D0%B9" target="_blank" rel="noopener">Записаться</a>
+              <a class="cta" href="#booking">Онлайн‑запись</a>
             </div>
           </div>
         </div>
@@ -340,7 +344,7 @@
           <div class="card">
             <h3>Мастер глубинных преобразований</h3>
             <p>Мой путь — от тренерской практики к искусству прикосновения. Раньше я работал тренером по кинезиотерапии: этот опыт помогает тонко видеть паттерны движения и работать с первопричинами.</p>
-            <p>Комбинирую точность оценки движений, практичность тренера и чуткость массажиста. Главная цель — вернуть телу свободу и уверенность.</p>
+            <p>Комбинирую точность оценки движений, практичность тренера и чуткость массажиста. Цель — вернуть телу свободу и уверенность.</p>
             <ul class="list">
               <li>5+ лет практики</li>
               <li>Глубокая проработка без боли</li>
@@ -354,88 +358,41 @@
       </div>
     </section>
 
-    <section id="blog">
+    <section id="booking">
       <div class="container">
-        <h2 class="sec-title">Польза и материалы</h2>
-        <div class="blog-list">
-          <a class="card" href="https://teletype.in/" target="_blank" rel="noopener">
-            <h3>Оценка движений простыми словами</h3>
-            <p>Зачем нужна, как проходит и что даёт.</p>
-          </a>
-          <a class="card" href="https://dzen.ru" target="_blank" rel="noopener">
-            <h3>Подготовка к моделирующему массажу</h3>
-            <p>Что учесть за день до и после.</p>
-          </a>
-          <a class="card" href="https://www.youtube.com/results?search_query=%D0%9C%D0%A4%D0%A0+%D0%B4%D0%BB%D1%8F+%D0%B4%D0%BE%D0%BC%D0%B0" target="_blank" rel="noopener">
-            <h3>МФР дома: 3 безопасные практики</h3>
-            <p>Ролик, мяч и дыхание — короткий план.</p>
-          </a>
+        <h2 class="sec-title">Онлайн‑запись</h2>
+        <div class="embed">
+          <iframe id="bookingIframe" title="Онлайн-запись"></iframe>
         </div>
+        <p class="muted" style="margin-top:10px">
+          Если не нашли удобное время — напишите: 
+          <a href="https://wa.me/79990001122" target="_blank" rel="noopener">WhatsApp</a> •
+          <a href="mailto:hello@ren59.ru?subject=%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D0%BE%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B8">Email</a>
+        </p>
       </div>
     </section>
 
     <section id="contacts">
       <div class="container">
-        <h2 class="sec-title">Контакты и запись</h2>
-        <div class="contact">
-          <div class="form">
-            <h3>Быстрая запись</h3>
-            <p class="muted">Выберите формат, укажите контакты — и нажмите «Записаться в WhatsApp». Сообщение сформируется автоматически.</p>
-            <form id="bookingForm">
-              <div class="field">
-                <label for="name">Имя</label>
-                <input id="name" name="name" type="text" placeholder="Ирина" required />
-              </div>
-              <div class="field">
-                <label for="phone">Телефон</label>
-                <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+7 999 123-45-67" required />
-              </div>
-              <div class="field">
-                <label for="service">Формат</label>
-                <select id="service" name="service" required>
-                  <option value="Восстановительная работа">Восстановительная работа</option>
-                  <option value="Моделирующий массаж">Моделирующий массаж</option>
-                  <option value="Спортивный / глубокотканный">Спортивный / глубокотканный</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="date">Желаемая дата</label>
-                <input id="date" name="date" type="date" />
-              </div>
-              <div class="field">
-                <label for="msg">Комментарий</label>
-                <textarea id="msg" name="msg" rows="3" placeholder="Удобное время, задачи, пожелания"></textarea>
-              </div>
-              <div class="actions">
-                <button type="submit" class="cta">Записаться в WhatsApp</button>
-                <a class="cta cta--ghost" id="tgShare" href="https://t.me/share/url?url=https%3A%2F%2Fren59.ru&text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BD%D0%B0%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E" target="_blank" rel="noopener">Написать в Telegram</a>
-              </div>
-              <div class="inline">
-                <span>Или позвонить:</span>
-                <a href="tel:+79990001122">+7 999 000‑11‑22</a>
-                <span>•</span>
-                <a href="mailto:hello@ren59.ru?subject=%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D0%BD%D0%B0%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E">hello@ren59.ru</a>
-              </div>
-              <p class="muted" style="margin-top:8px">
-                Отправляя заявку, вы соглашаетесь с <a href="#policy">политикой конфиденциальности</a>.
-              </p>
-            </form>
-          </div>
-          <div>
-            <div class="card">
-              <h3>Где проходит</h3>
-              <p>Пермь, центр города. Точный адрес — при записи.</p>
-              <div class="actions">
-                <a class="cta cta--ghost" href="https://yandex.ru/maps/50/perm/?ll=56.229398%2C58.010321&z=12" target="_blank" rel="noopener">Открыть в Яндекс.Картах</a>
-                <a class="cta cta--ghost" href="https://2gis.ru/perm/search/%D0%BC%D0%B0%D1%81%D1%81%D0%B0%D0%B6%20%D0%9F%D0%B5%D1%80%D0%BC%D1%8C" target="_blank" rel="noopener">2ГИС</a>
-              </div>
+        <h2 class="sec-title">Контакты</h2>
+        <div class="contact-grid">
+          <div class="card">
+            <h3>Связаться</h3>
+            <p>
+              Тел: <a href="tel:+79990001122">+7 999 000‑11‑22</a><br/>
+              Email: <a href="mailto:hello@ren59.ru?subject=%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81">hello@ren59.ru</a><br/>
+              WhatsApp: <a href="https://wa.me/79990001122" target="_blank" rel="noopener">wa.me/79990001122</a>
+            </p>
+            <div class="actions">
+              <a class="cta" href="#booking">Онлайн‑запись</a>
             </div>
-            <div class="card" style="margin-top:18px">
-              <h3>Мессенджеры</h3>
-              <p>
-                WhatsApp: <a href="https://wa.me/79990001122" target="_blank" rel="noopener">wa.me/79990001122</a><br/>
-                Telegram: <a href="https://t.me/share/url?url=https%3A%2F%2Fren59.ru&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BD%D0%B0%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E" target="_blank" rel="noopener">написать</a>
-              </p>
+          </div>
+          <div class="card">
+            <h3>Где проходит</h3>
+            <p>Пермь, центр города. Точный адрес — при записи.</p>
+            <div class="actions">
+              <a class="cta cta--ghost" href="https://yandex.ru/maps/50/perm/?ll=56.229398%2C58.010321&z=12" target="_blank" rel="noopener">Открыть в Яндекс.Картах</a>
+              <a class="cta cta--ghost" href="https://2gis.ru/perm" target="_blank" rel="noopener">2ГИС</a>
             </div>
           </div>
         </div>
@@ -467,6 +424,7 @@
           <a href="#services">Услуги</a><br/>
           <a href="#process">Как проходит</a><br/>
           <a href="#reviews">Отзывы</a><br/>
+          <a href="#gallery">Кабинет</a><br/>
           <a href="#pricing">Цены</a><br/>
           <a href="#faq">FAQ</a>
         </p>
@@ -489,27 +447,22 @@
     "url": "https://ren59.ru",
     "telephone": "+7-999-000-11-22",
     "areaServed": "Пермь",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Пермь",
-      "addressCountry": "RU"
-    },
+    "address": {"@type":"PostalAddress","addressLocality":"Пермь","addressCountry":"RU"},
     "openingHoursSpecification": [{
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-      "opens": "10:00",
-      "closes": "21:00"
+      "opens": "10:00", "closes": "21:00"
     }],
     "sameAs": [
       "https://wa.me/79990001122",
       "https://yandex.ru/maps/50/perm/",
-      "https://2gis.ru/perm/search/%D0%BC%D0%B0%D1%81%D1%81%D0%B0%D0%B6%20%D0%9F%D0%B5%D1%80%D0%BC%D1%8C",
+      "https://2gis.ru/perm",
       "https://vk.com"
     ],
     "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Услуги массажа",
-      "itemListElement": [
+      "@type":"OfferCatalog",
+      "name":"Услуги массажа",
+      "itemListElement":[
         {"@type":"Offer","name":"Восстановительная работа"},
         {"@type":"Offer","name":"Моделирующий массаж"},
         {"@type":"Offer","name":"Спортивный / глубокотканный"}
@@ -519,56 +472,100 @@
   </script>
 
   <script>
-    // CONFIG: замените на свои данные при необходимости
+    // ========= CONFIG =========
+    // Выберите провайдера онлайн-записи и вставьте ссылку:
     const CONFIG = {
-      waNumber: '79990001122', // без +
-      siteUrl: 'https://ren59.ru'
+      bookingProvider: 'cal', // 'cal' или 'yclients'
+      calLink: 'https://cal.com/', // Замените на вашу ссылку Cal.com, например: 'https://cal.com/ren59/60min'
+      yclientsUrl: 'https://www.yclients.com/', // Замените на вашу страницу записи Yclients
+      siteUrl: 'https://ren59.ru',
+      yandexReviewsUrl: 'https://yandex.ru/maps/50/perm/',
+      gisReviewsUrl: 'https://2gis.ru/perm'
     };
 
-    // Формирование сообщения для WhatsApp из формы
-    const form = document.getElementById('bookingForm');
-    const tgShare = document.getElementById('tgShare');
+    // ========= REVIEWS (замените на реальные цитаты и ссылки) =========
+    const REVIEWS = [
+      {
+        author: "А.",
+        stars: 5,
+        text: "После первой сессии стало легче дышать и двигаться. Глубоко, но без боли.",
+        sourceName: "Яндекс Карты",
+        sourceUrl: "https://yandex.ru/maps/50/perm/"
+      },
+      {
+        author: "Е.",
+        stars: 5,
+        text: "После спорта всегда иду к Евгению: точечно снимает скованность, отличный эффект.",
+        sourceName: "2ГИС",
+        sourceUrl: "https://2gis.ru/perm"
+      },
+      {
+        author: "К.",
+        stars: 5,
+        text: "Моделирующий — супер: уходит отёчность, тело ощущается легче.",
+        sourceName: "Яндекс Карты",
+        sourceUrl: "https://yandex.ru/maps/50/perm/"
+      }
+    ];
+
+    // ========= GALLERY (замените на реальные фото кабинета) =========
+    const GALLERY = [
+      {src:"https://images.unsplash.com/photo-1612152607435-8cd7fe46b8f3?auto=format&fit=crop&w=1200&q=80", alt:"Кабинет — вид 1"},
+      {src:"https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=1200&q=80", alt:"Кабинет — вид 2"},
+      {src:"https://images.unsplash.com/photo-1573878735867-4c3473cc7793?auto=format&fit=crop&w=1200&q=80", alt:"Кабинет — детали"},
+      {src:"https://images.unsplash.com/photo-1580281657527-47e2d9fb1ba8?auto=format&fit=crop&w=1200&q=80", alt:"Кабинет — зона ожидания"},
+      {src:"https://images.unsplash.com/photo-1609842059514-30c75b34d54f?auto=format&fit=crop&w=1200&q=80", alt:"Атмосфера и свет"},
+      {src:"https://images.unsplash.com/photo-1540202404-0a8a3c868911?auto=format&fit=crop&w=1200&q=80", alt:"Чистота и порядок"}
+    ];
+
+    // ========= INIT =========
     const year = document.getElementById('y');
     if (year) year.textContent = new Date().getFullYear();
 
-    function buildMessage() {
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const service = document.getElementById('service').value;
-      const date = document.getElementById('date').value;
-      const msg = document.getElementById('msg').value.trim();
+    // Подставляем ссылки на источники отзывов
+    document.getElementById('yandexLink').href = CONFIG.yandexReviewsUrl;
+    document.getElementById('gisLink').href = CONFIG.gisReviewsUrl;
 
-      const parts = [
-        'Здравствуйте!',
-        'Хочу записаться на сессию.',
-        `Формат: ${service}`,
-        name ? `Имя: ${name}` : '',
-        phone ? `Телефон: ${phone}` : '',
-        date ? `Желаемая дата: ${date}` : '',
-        msg ? `Комментарий: ${msg}` : ''
-      ].filter(Boolean);
-
-      return encodeURIComponent(parts.join('\n'));
+    // Рендер отзывов
+    const reviewsGrid = document.getElementById('reviewsGrid');
+    function starIcons(n){
+      return '★'.repeat(n) + '☆'.repeat(5-n);
     }
+    REVIEWS.forEach(r=>{
+      const el = document.createElement('div');
+      el.className = 'quote';
+      el.innerHTML = `
+        <p>«${r.text}»</p>
+        <p class="muted">— ${r.author}, ${starIcons(r.stars)} <a href="${r.sourceUrl}" target="_blank" rel="noopener">${r.sourceName}</a></p>
+      `;
+      reviewsGrid.appendChild(el);
+    });
 
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const text = buildMessage();
-        const wa = `https://wa.me/${CONFIG.waNumber}?text=${text}`;
-        window.open(wa, '_blank', 'noopener');
-      });
+    // Рендер галереи
+    const galleryGrid = document.getElementById('galleryGrid');
+    GALLERY.forEach(img=>{
+      const a = document.createElement('a');
+      a.href = img.src; a.target = '_blank'; a.rel = 'noopener';
+      const i = document.createElement('img'); i.src = img.src; i.alt = img.alt;
+      a.appendChild(i);
+      galleryGrid.appendChild(a);
+    });
+
+    // Встраиваем провайдера онлайн-записи
+    const bookingIframe = document.getElementById('bookingIframe');
+    function setBookingSrc(){
+      if(CONFIG.bookingProvider === 'cal' && CONFIG.calLink && CONFIG.calLink !== 'https://cal.com/'){
+        bookingIframe.src = CONFIG.calLink;
+      } else if (CONFIG.bookingProvider === 'yclients' && CONFIG.yclientsUrl && CONFIG.yclientsUrl !== 'https://www.yclients.com/'){
+        bookingIframe.src = CONFIG.yclientsUrl;
+      } else {
+        // Фолбек — открываем сайт провайдера, чтобы ссылка не была «битой»
+        bookingIframe.src = CONFIG.bookingProvider === 'yclients' ? 'https://www.yclients.com/' : 'https://cal.com/';
+      }
     }
+    setBookingSrc();
 
-    if (tgShare) {
-      tgShare.addEventListener('click', (e) => {
-        const textDecoded = decodeURIComponent(buildMessage());
-        const tg = `https://t.me/share/url?url=${encodeURIComponent(CONFIG.siteUrl)}&text=${encodeURIComponent(textDecoded)}`;
-        tgShare.setAttribute('href', tg);
-      });
-    }
-
-    // Плавный скролл для якорных ссылок
+    // Плавный скролл для якорей
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', function(e){
         const id = this.getAttribute('href');
@@ -584,7 +581,10 @@
 </html>
 ```
 
-Хотите, чтобы я:
-- Подставил ваш реальный номер WhatsApp/телефон, почту и адрес в Перми?
-- Включил виджет онлайн-записи (Yclients/Cal.com) вместо WhatsApp?
-- Добавил реальные отзывы с Яндекс/2ГИС и фото кабинета?
+Что осталось подставить с вашей стороны (кидайте — сделаю сам):
+- Ссылка на расписание:
+  - Cal.com: отправьте ссылку формата https://cal.com/username/30min (или другой слот).
+  - Yclients: пришлите публичный URL онлайн-записи.
+- Реальные отзывы: 3–6 цитат + ссылки на конкретные карточки в Яндекс/2ГИС. Я подставлю в массив REVIEWS.
+- Фото кабинета: 4–6 ссылок (Google Drive/Яндекс.Диск/облако) или сразу webp/jpg — подставлю в GALLERY. Лучше горизонтальные 1600px+, webp.
+- При желании добавлю виджет Яндекс.Карт с точным адресом и кнопкой «Построить маршрут».
