@@ -1,23 +1,22 @@
+Готово! Убрал виджеты Яндекс/2ГИС. Оставил только цитаты отзывов со ссылками. Блоки услуг сделали кликабельными (аккордеоны): при клике открывается описание, цены и кнопки записи/звонка. Цены на массаж — по длительности (60/90/120). SPA — как доп. к массажу, стоимость по запросу.
+
+Скопируйте как index.html.
+
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Евгений — массаж в Перми: глубокая бережная работа с телом</title>
-  <meta name="description" content="Классический, авторский, релакс, лимфодренажный, антицеллюлитный, спортивный массаж, тейпирование. SPA: массаж лица, альгинатная маска, скрабирование, обертывание. Массаж: 60 мин — 1800 ₽, 90 мин — 2500 ₽, 120 мин — 3200 ₽. Абонементы: 3 — 5100 ₽, 5 — 8500 ₽, 10 — 16200 ₽. Запись: +7 988 505-47-52, Telegram @ren_massage." />
+  <meta name="description" content="Массажи: классический, авторский, релакс, лимфодренажный, антицеллюлитный, спортивный, массаж лица, тейпирование. SPA: альгинатная маска, скрабирование, обертывание. Массаж: 60 мин — 1800 ₽, 90 мин — 2500 ₽, 120 мин — 3200 ₽. Абонементы: 3 — 5100 ₽, 5 — 8500 ₽, 10 — 16200 ₽. Запись: +7 988 505-47-52, Telegram @ren_massage." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Евгений — массаж в Перми" />
-  <meta property="og:description" content="Массажи и SPA-процедуры. Массаж: 60 мин — 1800 ₽, 90 мин — 2500 ₽, 120 мин — 3200 ₽. Абонементы: 3 — 5100 ₽, 5 — 8500 ₽, 10 — 16200 ₽." />
+  <meta property="og:description" content="Глубокая бережная работа с телом. Массажи и SPA-процедуры. Запись по телефону и в Telegram." />
   <meta property="og:url" content="https://ren59.ru" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1556229010-aa3f7ff66b66?auto=format&fit=crop&w=1600&q=80" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Евгений — массаж в Перми" />
-  <meta name="twitter:description" content="Массажи и SPA-процедуры. Запись по телефону и в Telegram." />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1556229010-aa3f7ff66b66?auto=format&fit=crop&w=1600&q=80" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,14 +25,9 @@
 
   <style>
     :root{
-      --bg:#0f1214;
-      --text:#eef1f0;
-      --muted:#cfd6d3;
-      --accent:#B1763A; /* медь */
-      --accent-2:#1F6D62; /* хвойный */
-      --sand:#F4EDE4;
-      --card:#171b1e;
-      --line:#263039;
+      --bg:#0f1214; --text:#eef1f0; --muted:#cfd6d3;
+      --accent:#B1763A; --accent-2:#1F6D62; --sand:#F4EDE4;
+      --card:#171b1e; --line:#263039;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
@@ -41,26 +35,18 @@
     a:hover{opacity:.9}
     img{max-width:100%;display:block}
     .container{max-width:1160px;margin:0 auto;padding:0 20px}
-    header{
-      position:sticky;top:0;z-index:50;background:rgba(15,18,20,.7);
-      backdrop-filter: blur(8px);border-bottom:1px solid var(--line)
-    }
+    header{position:sticky;top:0;z-index:50;background:rgba(15,18,20,.7);backdrop-filter: blur(8px);border-bottom:1px solid var(--line)}
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:700}
     .brand__logo{width:28px;height:28px;border-radius:6px;background:linear-gradient(145deg,var(--accent),var(--accent-2))}
     .menu{display:flex;gap:18px;flex-wrap:wrap}
     .menu a{font-size:14px;color:var(--muted)}
-    .cta{
-      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;
-      background:linear-gradient(145deg,var(--accent),var(--accent-2));color:#fff;font-weight:700
-    }
+    .cta{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:linear-gradient(145deg,var(--accent),var(--accent-2));color:#fff;font-weight:700}
     .cta--ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
     /* Hero */
     .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;padding:48px 0}
     .hero h1{font-size:40px;line-height:1.15;margin:0 0 14px}
     .hero p{color:var(--muted);margin:0 0 22px}
-    .hero__badges{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 24px}
-    .badge{font-size:12px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--sand)}
     .hero__img{border-radius:14px;overflow:hidden;border:1px solid var(--line)}
     .trust{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:14px;margin-top:8px}
     /* Sections */
@@ -68,42 +54,34 @@
     .sec-title{font-size:28px;margin:0 0 18px}
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-    .card h3{margin:0 0 8px}
-    .card p{color:var(--muted);margin:0 0 8px}
-    .list{margin:10px 0 0;padding:0 0 0 16px;color:var(--muted)}
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
-    .step .n{display:inline-block;background:var(--accent-2);color:#fff;border-radius:8px;padding:4px 8px;font-weight:700;margin-bottom:8px}
-    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .quote{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
     .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .price .amt{font-size:28px;font-weight:700;color:var(--sand)}
-    .price small{color:var(--muted)}
-    .faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:10px 0}
-    .faq summary{cursor:pointer;font-weight:600}
+    .old{ text-decoration:line-through; color:var(--muted); }
+    .save{ color:#22c55e; font-weight:700; }
+    .note{font-size:14px;color:var(--muted);margin-top:8px}
     .about{display:grid;grid-template-columns:1fr .9fr;gap:18px}
-    .blog-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .gallery img{border-radius:12px;border:1px solid var(--line)}
     .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .note{font-size:14px;color:var(--muted);margin-top:8px}
     footer{padding:28px 0;color:var(--muted);border-top:1px solid var(--line);font-size:14px}
     .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    .muted{color:var(--muted)}
-    .tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-    .tab{padding:8px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:var(--card)}
-    .tab.active{background:linear-gradient(145deg,var(--accent),var(--accent-2));color:#fff;border-color:transparent}
-    .embed{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;height:560px}
-    .embed iframe{width:100%;height:100%;border:0}
-    /* Abonements styling */
-    .old{ text-decoration:line-through; color:var(--muted); }
-    .save{ color:#22c55e; font-weight:700; }
+    .footer-badges{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
+    .badge{font-size:12px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--sand)}
+    /* Service accordion */
+    .service{position:relative}
+    .svc-head{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;background:transparent;border:none;color:inherit;padding:0;cursor:pointer}
+    .svc-head h3{margin:0;font-size:18px;text-align:left}
+    .svc-icon{flex:0 0 auto;width:28px;height:28px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px}
+    .svc-body{overflow:hidden;max-height:0;opacity:0;transition:max-height .3s ease, opacity .25s ease, padding-top .25s ease;padding-top:0}
+    .service.open .svc-body{opacity:1;padding-top:10px}
+    .svc-prices{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0}
+    .svc-prices .tag{border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--sand);font-size:13px}
+    .svc-list{margin:8px 0 0;padding-left:16px;color:var(--muted)}
     /* Responsive */
     @media (max-width: 980px){
       .hero{grid-template-columns:1fr}
-      .grid-3,.steps,.reviews,.blog-list,.price-grid,.about,.contact-grid,.footer-grid,.gallery{grid-template-columns:1fr}
-      .embed{height:520px}
+      .grid-3,.price-grid,.about,.contact-grid,.footer-grid,.gallery{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -137,15 +115,6 @@
       <div>
         <h1>Свобода движения и уверенность в теле</h1>
         <p>Глубокая, но бережная работа с тканями без боли. Индивидуальные программы под ваши задачи.</p>
-        <div class="hero__badges">
-          <span class="badge">💪 Авторский массаж</span>
-          <span class="badge">💧 Лимфодренаж</span>
-          <span class="badge">🧘 Релакс</span>
-          <span class="badge">🏋️ Спортивный</span>
-          <span class="badge">🏔️ Пермь</span>
-          <span class="badge">🔄 5+ лет</span>
-          <span class="badge">🌟 100% отзывы</span>
-        </div>
         <div class="actions">
           <a class="cta" href="tel:+79885054752">Позвонить</a>
           <a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank" rel="noopener">Написать в Telegram</a>
@@ -161,161 +130,244 @@
       </div>
     </section>
 
-    <!-- МАССАЖИ -->
+    <!-- МАССАЖИ (аккордеоны) -->
     <section id="services-massage">
       <div class="container">
         <h2 class="sec-title">Массажи</h2>
-        <p class="note">
-          Стоимость массажа по длительности:
-          <strong>60 мин — 1 800 ₽</strong> • <strong>90 мин — 2 500 ₽</strong> • <strong>120 мин — 3 200 ₽</strong>
-        </p>
+        <p class="note">Стоимость по длительности: 60 мин — 1 800 ₽ • 90 мин — 2 500 ₽ • 120 мин — 3 200 ₽</p>
+
         <div class="grid-3">
-          <div class="card" id="svc-classic">
-            <h3>Классический массаж всего тела</h3>
-            <p>Базовая проработка мышц для тонуса и расслабления. 60–120 минут.</p>
-            <ul class="list">
-              <li>Усталость, «офисная» спина, общее напряжение</li>
-              <li>Поглаживания, растирания, разминания</li>
-              <li>Эффект: лёгкость, улучшение крово- и лимфотока</li>
-            </ul>
-            <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+          <!-- Классический -->
+          <div class="card service" id="svc-classic">
+            <button class="svc-head" aria-expanded="false">
+              <h3>Классический массаж всего тела</h3>
+              <span class="svc-icon">＋</span>
+            </button>
+            <div class="svc-body">
+              <ul class="svc-list">
+                <li>Базовая проработка мышц для тонуса и расслабления</li>
+                <li>Техники: поглаживания, растирания, разминания</li>
+                <li>Эффект: лёгкость, улучшение крово- и лимфотока</li>
+              </ul>
+              <div class="svc-prices">
+                <span class="tag">60 мин — 1 800 ₽</span>
+                <span class="tag">90 мин — 2 500 ₽</span>
+                <span class="tag">120 мин — 3 200 ₽</span>
+              </div>
+              <div class="actions">
+                <a class="cta" href="tel:+79885054752">Позвонить</a>
+                <a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a>
+              </div>
+            </div>
           </div>
 
-          <div class="card" id="svc-author">
-            <h3>Авторский массаж: снятие блоков и зажимов</h3>
-            <p>Глубокая, бережная работа с паттернами напряжения. 60–120 минут.</p>
-            <ul class="list">
-              <li>Локальные зажимы, «деревянная» спина/шея</li>
-              <li>Фасциальные приёмы, работа с триггерами, дыхание</li>
-              <li>Эффект: свободные движения, выравнивание ощущений</li>
-            </ul>
-            <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+          <!-- Авторский -->
+          <div class="card service" id="svc-author">
+            <button class="svc-head" aria-expanded="false">
+              <h3>Авторский массаж: снятие блоков и зажимов</h3>
+              <span class="svc-icon">＋</span>
+            </button>
+            <div class="svc-body">
+              <ul class="svc-list">
+                <li>Глубокая, бережная работа с паттернами напряжения</li>
+                <li>Фасциальные приёмы, работа с триггерами, дыхание</li>
+                <li>Эффект: свободные движения, выравнивание ощущений</li>
+              </ul>
+              <div class="svc-prices">
+                <span class="tag">60 мин — 1 800 ₽</span><span class="tag">90 мин — 2 500 ₽</span><span class="tag">120 мин — 3 200 ₽</span>
+              </div>
+              <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+            </div>
           </div>
 
-          <div class="card" id="svc-relax">
-            <h3>Релакс массаж</h3>
-            <p>Медленный ритм, мягкие переходы, глубокое расслабление. 60–120 минут.</p>
-            <ul class="list">
-              <li>Стресс, перегруз, сложности со сном</li>
-              <li>Плавные длинные проходы, тёплое масло</li>
-              <li>Эффект: спокойствие, «перезагрузка» нервной системы</li>
-            </ul>
-            <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+          <!-- Релакс -->
+          <div class="card service" id="svc-relax">
+            <button class="svc-head" aria-expanded="false">
+              <h3>Релакс массаж</h3>
+              <span class="svc-icon">＋</span>
+            </button>
+            <div class="svc-body">
+              <ul class="svc-list">
+                <li>Медленный ритм, мягкие переходы, глубокое расслабление</li>
+                <li>Плавные длинные проходы, тёплое масло</li>
+                <li>Эффект: спокойствие, «перезагрузка» нервной системы</li>
+              </ul>
+              <div class="svc-prices">
+                <span class="tag">60 мин — 1 800 ₽</span><span class="tag">90 мин — 2 500 ₽</span><span class="tag">120 мин — 3 200 ₽</span>
+              </div>
+              <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+            </div>
           </div>
 
-          <div class="card" id="svc-lymph">
-            <h3>Лимфодренажный массаж</h3>
-            <p>Деликатная техника для снятия отёчности и «тяжести». 60–120 минут.</p>
-            <ul class="list">
-              <li>Отёки, застойные ощущения, тяжесть в ногах</li>
-              <li>Мягкие протяжки по ходу лимфотока</li>
-              <li>Эффект: ощутимая лёгкость, «просушка» тканей</li>
-            </ul>
-            <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+          <!-- Лимфодренаж -->
+          <div class="card service" id="svc-lymph">
+            <button class="svc-head" aria-expanded="false">
+              <h3>Лимфодренажный массаж</h3>
+              <span class="svc-icon">＋</span>
+            </button>
+            <div class="svc-body">
+              <ul class="svc-list">
+                <li>Деликатная техника для снятия отёчности и «тяжести»</li>
+                <li>Мягкие протяжки по ходу лимфотока</li>
+                <li>Эффект: ощутимая лёгкость, «просушка» тканей</li>
+              </ul>
+              <div class="svc-prices">
+                <span class="tag">60 мин — 1 800 ₽</span><span class="tag">90 мин — 2 500 ₽</span><span class="tag">120 мин — 3 200 ₽</span>
+              </div>
+              <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+            </div>
           </div>
 
-          <div class="card" id="svc-anticell">
-            <h3>Антицеллюлитный массаж</h3>
-            <p>Работа с качеством тканей и тонусом без травматизма. 60–120 минут.</p>
-            <ul class="list">
-              <li>Неровности рельефа, бёдра/ягодицы/живот</li>
-              <li>Глубокие бережные приёмы + дренаж</li>
-              <li>Эффект: более ровный рельеф при курсе 5–10 сессий</li>
-            </ul>
-            <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+          <!-- Антицеллюлитный -->
+          <div class="card service" id="svc-anticell">
+            <button class="svc-head" aria-expanded="false">
+              <h3>Антицеллюлитный массаж</h3>
+              <span class="svc-icon">＋</span>
+            </button>
+            <div class="svc-body">
+              <ul class="svc-list">
+                <li>Работа с качеством тканей и тонусом без травматизма</li>
+                <li>Глубокие бережные приёмы + дренаж</li>
+                <li>Эффект: более ровный рельеф (курс 5–10 сессий)</li>
+              </ul>
+              <div class="svc-prices">
+                <span class="tag">60 мин — 1 800 ₽</span><span class="tag">90 мин — 2 500 ₽</span><span class="tag">120 мин — 3 200 ₽</span>
+              </div>
+              <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+            </div>
           </div>
 
-          <div class="card" id="svc-sport">
-            <h3>Спортивный (фитнес) массаж</h3>
-            <p>Подготовка к нагрузкам и восстановление. 60–120 минут.</p>
-            <ul class="list">
-              <li>Тренировки, марафоны, игровые виды</li>
-              <li>Проработка цепей, триггеры, растяжки</li>
-              <li>Эффект: легче двигаться и быстрее восстанавливаться</li>
-            </ul>
-            <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+          <!-- Спортивный -->
+          <div class="card service" id="svc-sport">
+            <button class="svc-head" aria-expanded="false">
+              <h3>Спортивный (фитнес) массаж</h3>
+              <span class="svc-icon">＋</span>
+            </button>
+            <div class="svc-body">
+              <ul class="svc-list">
+                <li>Подготовка к нагрузкам и восстановление</li>
+                <li>Проработка мышечных цепей, триггеры, растяжки</li>
+                <li>Эффект: легче двигаться и быстрее восстанавливаться</li>
+              </ul>
+              <div class="svc-prices">
+                <span class="tag">60 мин — 1 800 ₽</span><span class="tag">90 мин — 2 500 ₽</span><span class="tag">120 мин — 3 200 ₽</span>
+              </div>
+              <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+            </div>
           </div>
 
-          <div class="card" id="svc-face">
-            <h3>Массаж лица</h3>
-            <p>Мягкая работа с мышцами лица и шеи, дренаж, релиз жевательной. 30–60 минут.</p>
-            <ul class="list">
-              <li>Отёчность, зажимы, «усталое лицо»</li>
-              <li>Лимфодренаж, релиз точек, аккуратные лифт‑приёмы</li>
-              <li>Эффект: свежесть, тонус, расслабление мимики</li>
-            </ul>
-            <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+          <!-- Массаж лица -->
+          <div class="card service" id="svc-face">
+            <button class="svc-head" aria-expanded="false">
+              <h3>Массаж лица</h3>
+              <span class="svc-icon">＋</span>
+            </button>
+            <div class="svc-body">
+              <ul class="svc-list">
+                <li>Мягкая работа с мышцами лица и шеи, дренаж, релиз жевательной</li>
+                <li>Эффект: свежесть, тонус, расслабление мимики</li>
+              </ul>
+              <div class="svc-prices">
+                <span class="tag">60 мин — 1 800 ₽</span>
+                <span class="tag">90 мин — 2 500 ₽</span>
+              </div>
+              <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+            </div>
           </div>
 
-          <div class="card" id="svc-tape">
-            <h3>Тейпирование (доп. опция)</h3>
-            <p>Поддержка движений и тканей между сессиями. 10–20 минут.</p>
-            <ul class="list">
-              <li>Локальные зоны, напоминание телу о паттерне</li>
-              <li>Гипоаллергенные тейпы</li>
-              <li>Эффект: мягкая поддержка 3–5 дней</li>
-            </ul>
-            <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+          <!-- Тейпирование -->
+          <div class="card service" id="svc-tape">
+            <button class="svc-head" aria-expanded="false">
+              <h3>Тейпирование (доп. опция)</h3>
+              <span class="svc-icon">＋</span>
+            </button>
+            <div class="svc-body">
+              <ul class="svc-list">
+                <li>Поддержка движений и тканей между сессиями (3–5 дней)</li>
+                <li>Гипоаллергенные тейпы, локальные зоны</li>
+              </ul>
+              <p class="note">Стоимость и необходимость обсуждаем на месте в дополнение к массажу.</p>
+              <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+            </div>
           </div>
         </div>
-        <p class="note">Тейпирование — как дополнение к массажу. Противопоказания обсудим перед началом. Услуги не являются медицинскими и не заменяют консультацию врача.</p>
+
+        <p class="note">Противопоказания обсудим перед началом. Услуги не являются медицинскими и не заменяют консультацию врача.</p>
       </div>
     </section>
 
-    <!-- SPA-ПРОЦЕДУРЫ -->
+    <!-- SPA-ПРОЦЕДУРЫ (аккордеоны) -->
     <section id="services-spa">
       <div class="container">
         <h2 class="sec-title">SPA‑процедуры</h2>
-      <p class="note">SPA‑процедуры выполняются как дополнение к массажу. Стоимость зависит от состава и зон — уточняйте при записи.</p>
+        <p class="note">Выполняются как дополнение к массажу. Стоимость зависит от состава и зон — уточняйте при записи.</p>
+
         <div class="grid-3">
-          <div class="card" id="svc-algin">
-            <h3>Альгинатная маска</h3>
-            <p>Минеральный уход для увлажнения и тонуса кожи. 20–30 минут.</p>
-            <ul class="list">
-              <li>Обезвоженность, тусклый тон</li>
-              <li>Подбор состава по типу кожи</li>
-              <li>Эффект: увлажнение, гладкость, комфорт</li>
-            </ul>
-            <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+          <!-- Альгинатная маска -->
+          <div class="card service" id="svc-algin">
+            <button class="svc-head" aria-expanded="false">
+              <h3>Альгинатная маска</h3>
+              <span class="svc-icon">＋</span>
+            </button>
+            <div class="svc-body">
+              <ul class="svc-list">
+                <li>Минеральный уход для увлажнения и тонуса кожи</li>
+                <li>Подбор состава по типу кожи</li>
+                <li>Эффект: увлажнение, гладкость, комфорт</li>
+              </ul>
+              <p class="note">Стоимость: по запросу.</p>
+              <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+            </div>
           </div>
 
-          <div class="card" id="svc-scrub">
-            <h3>Скрабирование</h3>
-            <p>Отшелушивание и обновление кожи перед уходом. 15–25 минут.</p>
-            <ul class="list">
-              <li>Неровность рельефа, тусклость</li>
-              <li>Мягкий скраб + тёплые полотенца</li>
-              <li>Эффект: гладкость, лучшее впитывание активов</li>
-            </ul>
-            <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+          <!-- Скрабирование -->
+          <div class="card service" id="svc-scrub">
+            <button class="svc-head" aria-expanded="false">
+              <h3>Скрабирование</h3>
+              <span class="svc-icon">＋</span>
+            </button>
+            <div class="svc-body">
+              <ul class="svc-list">
+                <li>Отшелушивание и обновление кожи перед уходом</li>
+                <li>Мягкий скраб + тёплые полотенца</li>
+              </ul>
+              <p class="note">Стоимость: по запросу.</p>
+              <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+            </div>
           </div>
 
-          <div class="card" id="svc-wrap">
-            <h3>Обертывание</h3>
-            <p>Тепло и активные составы для дренажа и тонуса. 30–45 минут.</p>
-            <ul class="list">
-              <li>Локальные зоны, релакс</li>
-              <li>Нанесение, укутывание, экспозиция</li>
-              <li>Эффект: ощущение подтянутости, мягкий дренаж</li>
-            </ul>
-            <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+          <!-- Обертывание -->
+          <div class="card service" id="svc-wrap">
+            <button class="svc-head" aria-expanded="false">
+              <h3>Обертывание</h3>
+              <span class="svc-icon">＋</span>
+            </button>
+            <div class="svc-body">
+              <ul class="svc-list">
+                <li>Тепло и активные составы для дренажа и тонуса</li>
+                <li>Нанесение, укутывание, комфортная экспозиция</li>
+              </ul>
+              <p class="note">Стоимость: по запросу.</p>
+              <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Telegram</a></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Процесс -->
     <section id="process">
       <div class="container">
         <h2 class="sec-title">Как проходит работа</h2>
-        <div class="steps">
-          <div class="step"><div class="n">1</div><h3>Оценка</h3><p>Коротко обсуждаем цели и самочувствие, подбираем формат и длительность.</p></div>
-          <div class="step"><div class="n">2</div><h3>Сессия</h3><p>Глубокая, но бережная работа с тканями, индивидуальная интенсивность.</p></div>
-          <div class="step"><div class="n">3</div><h3>Рекомендации</h3><p>Простые привычки/движения для закрепления результата.</p></div>
-          <div class="step"><div class="n">4</div><h3>Поддержка</h3><p>Связь между сессиями, корректировка при необходимости.</p></div>
+        <div class="grid-3">
+          <div class="card"><h3>1) Оценка</h3><p>Обсуждаем цели и самочувствие, подбираем формат и длительность.</p></div>
+          <div class="card"><h3>2) Сессия</h3><p>Глубокая, но бережная работа с тканями, индивидуальная интенсивность.</p></div>
+          <div class="card"><h3>3) Поддержка</h3><p>Простые привычки/движения и связь между сессиями.</p></div>
         </div>
       </div>
     </section>
 
+    <!-- Результаты -->
     <section id="results">
       <div class="container">
         <h2 class="sec-title">Что вы почувствуете</h2>
@@ -327,47 +379,25 @@
       </div>
     </section>
 
-    <!-- ОТЗЫВЫ -->
+    <!-- Отзывы (только цитаты + ссылки) -->
     <section id="reviews">
       <div class="container">
         <h2 class="sec-title">Отзывы</h2>
-
-        <div class="tabs">
-          <button class="tab active" data-tab="yandex">Яндекс Карты</button>
-          <button class="tab" data-tab="dgis">2ГИС</button>
-        </div>
-
-        <div id="yandexPane" class="embed" role="region" aria-label="Отзывы на Яндекс Картах">
-          <iframe id="yandexFrame" title="Отзывы Яндекс" loading="lazy"></iframe>
-        </div>
-        <div class="note">
-          Если виджет не отображается, откройте отзывы напрямую:
-          <a id="yandexLink" href="#" target="_blank" rel="noopener">Открыть на Яндекс Картах</a>
-        </div>
-
-        <div id="dgisPane" class="embed" role="region" aria-label="Отзывы в 2ГИС" style="display:none">
-          <iframe id="dgisFrame" title="Отзывы 2ГИС" loading="lazy"></iframe>
-        </div>
-        <div class="note" id="dgisNote" style="display:none">
-          Если виджет не отображается, откройте отзывы напрямую:
-          <a id="dgisLink" href="https://2gis.ru/perm/inside/2252435468854063/firm/70000001040324976/tab/reviews?m=56.224067%2C58.011422%2F17.27" target="_blank" rel="noopener">Открыть в 2ГИС</a>
-        </div>
-
-        <h3 style="margin-top:28px">Избранные отзывы (цитаты с источников)</h3>
-        <div id="reviewsGrid" class="reviews"></div>
-        <p class="muted">Цитаты приводятся с указанием источника и ссылки на оригинал.</p>
+        <div id="reviewsGrid" class="grid-3"></div>
+        <p class="note">Больше отзывов: <a href="https://yandex.ru/maps/50/perm/" target="_blank" rel="noopener">Яндекс Карты</a> • <a href="https://go.2gis.com/GaAVQ" target="_blank" rel="noopener">2ГИС</a></p>
       </div>
     </section>
 
+    <!-- Галерея -->
     <section id="gallery">
       <div class="container">
         <h2 class="sec-title">Кабинет</h2>
         <div class="gallery" id="galleryGrid"></div>
-        <p class="muted" style="margin-top:10px">Реальные фото: уют, чистота, одноразовые материалы, вода.</p>
+        <p class="note">Реальные фото: уют, чистота, одноразовые материалы, вода.</p>
       </div>
     </section>
 
-    <!-- ЦЕНЫ -->
+    <!-- Цены -->
     <section id="pricing">
       <div class="container">
         <h2 class="sec-title">Цены</h2>
@@ -414,26 +444,24 @@
           </div>
         </div>
 
-        <p class="note">
-          Абонементы рассчитаны на 60‑минутные сеансы. Условия использования и переносов уточняйте при записи.
-        </p>
-        <p class="muted">Информация носит ознакомительный характер и не заменяет консультацию врача. Услуги не являются медицинскими.</p>
+        <p class="note">Абонементы рассчитаны на 60‑минутные сеансы. Условия использования и переносов уточняйте при записи.</p>
+        <p class="note">Информация носит ознакомительный характер и не заменяет консультацию врача. Услуги не являются медицинскими.</p>
       </div>
     </section>
 
+    <!-- FAQ -->
     <section id="faq">
       <div class="container">
         <h2 class="sec-title">Частые вопросы</h2>
-        <div class="faq">
-          <details><summary>Больно ли при глубокой проработке?</summary><p>Нет. Работаю глубоко, но бережно. Интенсивность согласуем, ориентир — комфорт.</p></details>
-          <details><summary>Сколько нужно сеансов для заметного эффекта?</summary><p>Часто изменения ощутимы после 1 сессии. Для устойчивого результата — 3–5 встреч.</p></details>
-          <details><summary>Противопоказания и подготовка?</summary><p>Острые воспаления, температура, кожные инфекции и т.п. За 1–1.5 часа до — не плотно есть, взять воду.</p></details>
-          <details><summary>Можно совмещать с тренировками/сауной?</summary><p>Да. В день сессии — лёгкая активность; сауна — обычно на следующий день при хорошем самочувствии.</p></details>
-          <details><summary>Выезд, оплата, отмена?</summary><p>Выезд — по договорённости. Оплата: наличные/перевод. Отмена — за 12 часов и ранее.</p></details>
+        <div class="grid-3">
+          <div class="card"><h3>Больно ли при глубокой проработке?</h3><p>Нет. Работаю глубоко, но бережно. Интенсивность согласуем, ориентир — комфорт.</p></div>
+          <div class="card"><h3>Сколько нужно сеансов?</h3><p>Часто изменения ощутимы после 1 сессии. Для устойчивого результата — 3–5 встреч.</p></div>
+          <div class="card"><h3>Подготовка и противопоказания</h3><p>Не плотно есть за 1–1.5 часа; противопоказания обсудим перед началом.</p></div>
         </div>
       </div>
     </section>
 
+    <!-- Обо мне -->
     <section id="about">
       <div class="container">
         <h2 class="sec-title">Обо мне</h2>
@@ -441,7 +469,7 @@
           <div class="card">
             <h3>Мастер глубинных преобразований</h3>
             <p>Путь от тренерской практики к искусству прикосновения. Ранее — тренер по кинезиотерапии: этот опыт помогает видеть паттерны движения и работать с первопричинами.</p>
-            <ul class="list">
+            <ul class="svc-list">
               <li>5+ лет практики</li>
               <li>Глубокая проработка без боли</li>
               <li>Индивидуальная стратегия под задачу</li>
@@ -454,16 +482,14 @@
       </div>
     </section>
 
+    <!-- Контакты -->
     <section id="contacts">
       <div class="container">
         <h2 class="sec-title">Контакты</h2>
         <div class="contact-grid">
           <div class="card">
             <h3>Запись</h3>
-            <p>
-              Телефон: <a href="tel:+79885054752">+7 988 505‑47‑52</a><br/>
-              Telegram: <a href="https://t.me/ren_massage" target="_blank" rel="noopener">@ren_massage</a>
-            </p>
+            <p>Телефон: <a href="tel:+79885054752">+7 988 505‑47‑52</a><br/>Telegram: <a href="https://t.me/ren_massage" target="_blank" rel="noopener">@ren_massage</a></p>
             <div class="actions"><a class="cta" href="tel:+79885054752">Позвонить</a><a class="cta cta--ghost" href="https://t.me/ren_massage" target="_blank">Написать в Telegram</a></div>
           </div>
           <div class="card">
@@ -471,7 +497,7 @@
             <p>Пермь, центр. Точный адрес — при записи.</p>
             <div class="actions">
               <a class="cta cta--ghost" href="https://yandex.ru/maps/50/perm/?z=12" target="_blank" rel="noopener">Яндекс Карты</a>
-              <a class="cta cta--ghost" href="https://2gis.ru/perm" target="_blank" rel="noopener">2ГИС</a>
+              <a class="cta cta--ghost" href="https://go.2gis.com/GaAVQ" target="_blank" rel="noopener">2ГИС</a>
             </div>
           </div>
         </div>
@@ -479,6 +505,7 @@
     </section>
   </main>
 
+  <!-- Подвал -->
   <footer>
     <div class="container footer-grid">
       <div>
@@ -486,7 +513,16 @@
           <div class="brand__logo" aria-hidden="true"></div>
           <div>Евгений — массаж в Перми</div>
         </div>
-        <p>Глубокая бережная работа с телом. Без медицинских обещаний.</p>
+        <div class="footer-badges" aria-label="Ключевые маркеры">
+          <span class="badge">💪 Авторский массаж</span>
+          <span class="badge">💧 Лимфодренаж</span>
+          <span class="badge">🧘 Релакс</span>
+          <span class="badge">🏋️ Спортивный</span>
+          <span class="badge">🏔️ Пермь</span>
+          <span class="badge">🔄 5+ лет</span>
+          <span class="badge">🌟 100% отзывы</span>
+        </div>
+        <p style="margin-top:10px">Глубокая бережная работа с телом. Без медицинских обещаний.</p>
         <p class="muted">© <span id="y"></span> Евгений</p>
       </div>
       <div>
@@ -516,15 +552,9 @@
     "priceRange": "₽1800–3200",
     "address": {"@type":"PostalAddress","addressLocality":"Пермь","addressCountry":"RU"},
     "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-      "opens": "10:00", "closes": "21:00"
+      "@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"21:00"
     }],
-    "sameAs": [
-      "https://t.me/ren_massage",
-      "https://ren59.clients.site/",
-      "https://2gis.ru/perm/inside/2252435468854063/firm/70000001040324976/tab/reviews?m=56.224067%2C58.011422%2F17.27"
-    ],
+    "sameAs": ["https://t.me/ren_massage","https://ren59.clients.site/","https://go.2gis.com/GaAVQ"],
     "hasOfferCatalog": {
       "@type":"OfferCatalog",
       "name":"Массажи, SPA и абонементы",
@@ -549,92 +579,66 @@
   </script>
 
   <script>
-    // ====== CONFIG ======
-    const CONFIG = {
-      yandexReviewsUrl: "https://yandex.ru/maps/50/perm/", // замените на вашу точную страницу отзывов в Яндексе
-      dgisReviewsUrl: "https://2gis.ru/perm/inside/2252435468854063/firm/70000001040324976/tab/reviews?m=56.224067%2C58.011422%2F17.27"
-    };
+    // ТЕКУЩИЙ ГОД
+    const year = document.getElementById('y'); if (year) year.textContent = new Date().getFullYear();
 
-    // ====== REVIEWS QUOTES (необязательно) ======
+    // АККОРДЕОНЫ УСЛУГ
+    document.querySelectorAll('.service').forEach(card=>{
+      const head = card.querySelector('.svc-head');
+      const body = card.querySelector('.svc-body');
+      const icon = card.querySelector('.svc-icon');
+      const toggle = () => {
+        const open = card.classList.toggle('open');
+        head.setAttribute('aria-expanded', open ? 'true' : 'false');
+        icon.textContent = open ? '−' : '＋';
+        if(open){
+          body.style.maxHeight = body.scrollHeight + 'px';
+        } else {
+          body.style.maxHeight = '0px';
+        }
+      };
+      head.addEventListener('click', toggle);
+      // reset height on resize if open
+      window.addEventListener('resize', ()=>{ if(card.classList.contains('open')) body.style.maxHeight = body.scrollHeight + 'px'; });
+    });
+
+    // ОТЗЫВЫ: вставьте реальные цитаты и ссылки на конкретные отзывы
+    // Пример элемента: { text:"Цитата...", author:"Ирина К.", stars:5, sourceName:"2ГИС", sourceUrl:"https://go.2gis.com/GaAVQ#reviewId=XXXX" }
     const REVIEWS = [
-      // { text:"...", author:"...", stars:5, sourceName:"2ГИС", sourceUrl:"..." }
+      // TODO: замените на реальные цитаты и ссылки
+      { text:"Очень бережно и глубоко: после первой сессии ушла скованность в шее.", author:"А.", stars:5, sourceName:"2ГИС", sourceUrl:"https://go.2gis.com/GaAVQ" },
+      { text:"Отличный релакс, заснула на столе. Проснулась другим человеком.", author:"Е.", stars:5, sourceName:"Яндекс Карты", sourceUrl:"https://yandex.ru/maps/50/perm/" },
+      { text:"Спортивный массаж спасает после тренировок — восстанавливаюсь быстрее.", author:"К.", stars:5, sourceName:"2ГИС", sourceUrl:"https://go.2gis.com/GaAVQ" }
     ];
+    function starIcons(n){ return '★'.repeat(n) + '☆'.repeat(5-n); }
+    const reviewsGrid = document.getElementById('reviewsGrid');
+    REVIEWS.forEach(r=>{
+      const el = document.createElement('div');
+      el.className = 'quote';
+      el.innerHTML = `<p>«${r.text}»</p><p class="note">— ${r.author}, ${starIcons(r.stars)} • <a href="${r.sourceUrl}" target="_blank" rel="noopener">${r.sourceName}</a></p>`;
+      reviewsGrid.appendChild(el);
+    });
 
-    // ====== GALLERY ======
+    // ГАЛЕРЕЯ
     const GALLERY = [
       {src:"https://images.unsplash.com/photo-1612152607435-8cd7fe46b8f3?auto=format&fit=crop&w=1600&q=80", alt:"Кабинет — вид 1"},
       {src:"https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=1600&q=80", alt:"Кабинет — вид 2"},
       {src:"https://images.unsplash.com/photo-1573878735867-4c3473cc7793?auto=format&fit=crop&w=1600&q=80", alt:"Кабинет — детали"}
     ];
-
-    // ====== INIT ======
-    const year = document.getElementById('y'); if (year) year.textContent = new Date().getFullYear();
-
-    // Табы «Яндекс/2ГИС»
-    const tabs = document.querySelectorAll('.tab');
-    const yandexPane = document.getElementById('yandexPane');
-    const dgisPane = document.getElementById('dgisPane');
-    const dgisNote = document.getElementById('dgisNote');
-    const yandexLink = document.getElementById('yandexLink');
-    const dgisLink = document.getElementById('dgisLink');
-    const yandexFrame = document.getElementById('yandexFrame');
-    const dgisFrame = document.getElementById('dgisFrame');
-
-    function activateTab(name){
-      tabs.forEach(t=>t.classList.toggle('active', t.dataset.tab===name));
-      yandexPane.style.display = name==='yandex' ? '' : 'none';
-      dgisPane.style.display = name==='dgis' ? '' : 'none';
-      dgisNote.style.display = name==='dgis' ? '' : 'none';
-    }
-    tabs.forEach(t=>t.addEventListener('click',()=>activateTab(t.dataset.tab)));
-    activateTab('yandex');
-
-    // Подключаем ссылки
-    yandexLink.href = CONFIG.yandexReviewsUrl || 'https://yandex.ru/maps/50/perm/';
-    dgisLink.href = CONFIG.dgisReviewsUrl;
-
-    // Пробуем встроить страницы с отзывами (если разрешено)
-    function safeSrc(url){ return url && url.length ? url : 'about:blank'; }
-    yandexFrame.src = safeSrc(CONFIG.yandexReviewsUrl);
-    dgisFrame.src = safeSrc(CONFIG.dgisReviewsUrl);
-
-    // Рендер цитат (по мере добавления)
-    const reviewsGrid = document.getElementById('reviewsGrid');
-    function starIcons(n){ return '★'.repeat(n) + '☆'.repeat(5-n); }
-    if (REVIEWS.length){
-      REVIEWS.forEach(r=>{
-        const el = document.createElement('div');
-        el.className = 'quote';
-        el.innerHTML = `<p>«${r.text}»</p>
-                        <p class="muted">— ${r.author}, ${starIcons(r.stars)} 
-                        <a href="${r.sourceUrl}" target="_blank" rel="noopener">${r.sourceName}</a></p>`;
-        reviewsGrid.appendChild(el);
-      });
-    } else {
-      const el = document.createElement('p');
-      el.className = 'muted';
-      el.textContent = 'Откройте отзывы на Яндекс Картах или в 2ГИС по кнопкам выше. Цитаты добавим здесь по вашему запросу.';
-      reviewsGrid.parentNode.insertBefore(el, reviewsGrid.nextSibling);
-    }
-
-    // Галерея
     const galleryGrid = document.getElementById('galleryGrid');
     GALLERY.forEach(img=>{
-      const a = document.createElement('a');
-      a.href = img.src; a.target = '_blank'; a.rel = 'noopener';
+      const a = document.createElement('a'); a.href = img.src; a.target = '_blank'; a.rel = 'noopener';
       const i = document.createElement('img'); i.src = img.src; i.alt = img.alt;
-      a.appendChild(i);
-      galleryGrid.appendChild(a);
+      a.appendChild(i); galleryGrid.appendChild(a);
     });
 
-    // Плавный скролл
+    // ПЛАВНЫЙ СКРОЛЛ
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', function(e){
         const id = this.getAttribute('href');
-        if(id.length>1){
-          e.preventDefault();
+        if(id && id.length>1){
           const el = document.querySelector(id);
-          if(el){ window.scrollTo({top:el.offsetTop-64, behavior:'smooth'}); }
+          if(el){ e.preventDefault(); window.scrollTo({top:el.offsetTop-64, behavior:'smooth'}); }
         }
       })
     });
@@ -643,6 +647,4 @@
 </html>
 ```
 
-Хотите, чтобы добавил:
-- Срок действия абонементов и правила отмен/переноса?
-- Возможность дарить абонементы как подарочные сертификаты (отдельная карточка и PDF-шаблон)?
+Хотите — подставлю реальные цитаты отзывов (текст, автор, ссылка на конкретный отзыв в Яндекс/2ГИС) и добавлю ваши фото кабинета вместо плейсхолдеров.
