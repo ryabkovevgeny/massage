@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Евгений — массаж в Перми: глубокая бережная работа с телом</title>
+  <meta name="description" content="Евгений — профессиональный массажист в Перми. Восстановительная и моделирующая работа с телом, глубокотканные и миофасциальные техники без боли. Запись в WhatsApp." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Евгений — массаж в Перми" />
+  <meta property="og:description" content="Свобода движения и уверенность в теле. Восстановительная и моделирующая работа, глубокая бережная проработка без боли." />
+  <meta property="og:url" content="https://ren59.ru" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1556229010-aa3f7ff66b66?auto=format&fit=crop&w=1600&q=80" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Евгений — массаж в Перми" />
+  <meta name="twitter:description" content="Глубокая бережная работа с телом. Диагностика движений, индивидуальная стратегия, миофасциальные техники." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1556229010-aa3f7ff66b66?auto=format&fit=crop&w=1600&q=80" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#0f1214;
+      --text:#eef1f0;
+      --muted:#cfd6d3;
+      --accent:#B1763A; /* медь */
+      --accent-2:#1F6D62; /* хвойный */
+      --sand:#F4EDE4;
+      --card:#171b1e;
+      --line:#263039;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+    a{color:var(--sand);text-decoration:none}
+    a:hover{opacity:.9}
+    img{max-width:100%;display:block}
+    .container{max-width:1160px;margin:0 auto;padding:0 20px}
+    header{
+      position:sticky;top:0;z-index:50;background:rgba(15,18,20,.7);
+      backdrop-filter: blur(8px);border-bottom:1px solid var(--line)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .brand__logo{width:28px;height:28px;border-radius:6px;background:linear-gradient(145deg,var(--accent),var(--accent-2))}
+    .menu{display:flex;gap:18px;flex-wrap:wrap}
+    .menu a{font-size:14px;color:var(--muted)}
+    .cta{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;
+      background:linear-gradient(145deg,var(--accent),var(--accent-2));color:#fff;font-weight:700
+    }
+    .cta--ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;padding:48px 0}
+    .hero h1{font-size:40px;line-height:1.15;margin:0 0 14px}
+    .hero p{color:var(--muted);margin:0 0 22px}
+    .hero__badges{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 24px}
+    .badge{font-size:12px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--sand)}
+    .hero__img{border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+    .trust{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:14px;margin-top:8px}
+    /* Sections */
+    section{padding:48px 0;border-top:1px solid var(--line)}
+    .sec-title{font-size:28px;margin:0 0 18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+    .card h3{margin:0 0 8px}
+    .card p{color:var(--muted);margin:0 0 8px}
+    .list{margin:10px 0 0;padding:0 0 0 16px;color:var(--muted)}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+    .step .n{display:inline-block;background:var(--accent-2);color:#fff;border-radius:8px;padding:4px 8px;font-weight:700;margin-bottom:8px}
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .quote{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+    .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .price .amt{font-size:28px;font-weight:700;color:var(--sand)}
+    .price small{color:var(--muted)}
+    .faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:10px 0}
+    .faq summary{cursor:pointer;font-weight:600}
+    .about{display:grid;grid-template-columns:1fr .9fr;gap:18px}
+    .blog-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    .form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+    .field{display:flex;gap:10px;margin:10px 0}
+    .field label{flex:0 0 140px;color:var(--muted)}
+    .field input,.field select,.field textarea{
+      width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#111518;color:var(--text)
+    }
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .inline{display:flex;gap:10px;align-items:center;color:var(--muted)}
+    footer{padding:28px 0;color:var(--muted);border-top:1px solid var(--line);font-size:14px}
+    .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .muted{color:var(--muted)}
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr}
+      .grid-3,.steps,.reviews,.blog-list,.price-grid,.about,.contact,.footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true"></div>
+        <div>Евгений — массаж в Перми</div>
+      </div>
+      <nav class="menu" aria-label="Главное меню">
+        <a href="#services">Услуги</a>
+        <a href="#process">Как проходит</a>
+        <a href="#results">Результаты</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#pricing">Цены</a>
+        <a href="#faq">FAQ</a>
+        <a href="#about">Обо мне</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E" target="_blank" rel="noopener">Записаться</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div>
+        <h1>Свобода движения и уверенность в теле</h1>
+        <p>Глубокая, но бережная работа с тканями без боли. Восстановительная и моделирующая работа, ориентированная на первопричины, а не только симптомы.</p>
+        <div class="hero__badges">
+          <span class="badge">💪 Моделирующий массаж</span>
+          <span class="badge">🏋️ Спортивный/глубокотканный</span>
+          <span class="badge">🎯 Индивидуальная стратегия</span>
+          <span class="badge">⚡ Глубокая проработка</span>
+          <span class="badge">🏔️ Пермь</span>
+          <span class="badge">🔄 5+ лет</span>
+          <span class="badge">🌟 100% отзывы</span>
+        </div>
+        <div class="actions">
+          <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E" target="_blank" rel="noopener">Записаться в WhatsApp</a>
+          <a class="cta cta--ghost" href="#contacts">15 минут диагностики</a>
+        </div>
+        <div class="trust">
+          <span>🔒 Конфиденциально</span>
+          <span>🕒 60–90 минут сессии</span>
+          <span>📍 Пермь</span>
+        </div>
+      </div>
+      <div class="hero__img">
+        <img src="https://images.unsplash.com/photo-1556229010-aa3f7ff66b66?auto=format&fit=crop&w=1600&q=80" alt="Процесс массажа — глубокая бережная работа с тканями" />
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2 class="sec-title">Услуги</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Восстановительная работа</h3>
+            <p>Снятие скованности, улучшение амплитуды, комфорт в движениях.</p>
+            <ul class="list">
+              <li>Оценка паттернов движения</li>
+              <li>Миофасциальные техники</li>
+              <li>Домашние рекомендации</li>
+            </ul>
+            <div class="actions">
+              <a class="cta cta--ghost" href="#pricing">Тарифы</a>
+              <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BD%D0%B0%20%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%83%D1%8E%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E" target="_blank" rel="noopener">Записаться</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Моделирующий массаж</h3>
+            <p>Работа с отёчностью, фасциями и тонусом для устойчивого силуэта.</p>
+            <ul class="list">
+              <li>Лимфодренажный фокус</li>
+              <li>Глубокая, бережная проработка</li>
+              <li>Простые привычки для поддержки</li>
+            </ul>
+            <div class="actions">
+              <a class="cta cta--ghost" href="#pricing">Тарифы</a>
+              <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%80%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D0%BC%D0%B0%D1%81%D1%81%D0%B0%D0%B6" target="_blank" rel="noopener">Записаться</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Спортивный / глубокотканный</h3>
+            <p>Поддержка под нагрузками, работа с триггерными точками.</p>
+            <ul class="list">
+              <li>Миофасциальный релиз</li>
+              <li>Гибкая интенсивность, без боли</li>
+              <li>Возврат к привычным нагрузкам</li>
+            </ul>
+            <div class="actions">
+              <a class="cta cta--ghost" href="#pricing">Тарифы</a>
+              <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9%20%2F%20%D0%B3%D0%BB%D1%83%D0%B1%D0%BE%D0%BA%D0%BE%D1%82%D0%BA%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BC%D0%B0%D1%81%D1%81%D0%B0%D0%B6" target="_blank" rel="noopener">Записаться</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <h2 class="sec-title">Как проходит работа</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="n">1</div>
+            <h3>Оценка движений</h3>
+            <p>Короткая диагностика, цели и ожидания. Без медицинских обещаний.</p>
+          </div>
+          <div class="step">
+            <div class="n">2</div>
+            <h3>Сессия</h3>
+            <p>Глубокая, но бережная работа с тканями, индивидуальная интенсивность.</p>
+          </div>
+          <div class="step">
+            <div class="n">3</div>
+            <h3>Рекомендации</h3>
+            <p>Простые упражнения/привычки для закрепления результата.</p>
+          </div>
+          <div class="step">
+            <div class="n">4</div>
+            <h3>Контроль прогресса</h3>
+            <p>Связь между сессиями. Корректировка по факту ощущений.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <div class="container">
+        <h2 class="sec-title">Что вы почувствуете</h2>
+        <div class="grid-3">
+          <div class="card"><h3>Сразу</h3><p>Меньше скованности и зажимов, легкость в теле.</p></div>
+          <div class="card"><h3>Через 3–5 сессий</h3><p>Лучшая осанка и амплитуда, устойчивый комфорт в повседневных движениях.</p></div>
+          <div class="card"><h3>Дальше</h3><p>Понятный план поддержания результата и возвращение к нагрузкам.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="container">
+        <h2 class="sec-title">Отзывы</h2>
+        <div class="reviews">
+          <div class="quote">
+            <p>«Глубокая работа без боли — уже после первой сессии стало легче дышать и двигаться. Рекомендую!»</p>
+            <p class="muted">— А., 5★ <a href="https://yandex.ru/maps/50/perm/" target="_blank" rel="noopener">Яндекс Карты</a></p>
+          </div>
+          <div class="quote">
+            <p>«После спорта всегда иду к Евгению. Точно находит, где «тянет», и снимает скованность.»</p>
+            <p class="muted">— Е., 5★ <a href="https://2gis.ru/perm/search/%D0%BC%D0%B0%D1%81%D1%81%D0%B0%D0%B6%20%D0%9F%D0%B5%D1%80%D0%BC%D1%8C" target="_blank" rel="noopener">2ГИС</a></p>
+          </div>
+          <div class="quote">
+            <p>«Моделирующий — супер: уходит отёчность, чувствуется тонус, а ощущения мягкие.»</p>
+            <p class="muted">— К., 5★ <a href="https://vk.com" target="_blank" rel="noopener">VK</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <h2 class="sec-title">Цены и пакеты</h2>
+        <div class="price-grid">
+          <div class="card price">
+            <h3>Разовая сессия</h3>
+            <p class="amt">от 3 000 ₽</p>
+            <p><small>60–90 минут, зависит от задачи</small></p>
+            <div class="actions">
+              <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D1%83%D1%8E%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E" target="_blank" rel="noopener">Записаться</a>
+            </div>
+          </div>
+          <div class="card price">
+            <h3>Пакет 3</h3>
+            <p class="amt">от 8 500 ₽</p>
+            <p><small>Экономия по сравнению с разовыми визитами</small></p>
+            <div class="actions">
+              <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%203%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D0%B9" target="_blank" rel="noopener">Записаться</a>
+            </div>
+          </div>
+          <div class="card price">
+            <h3>Пакет 5</h3>
+            <p class="amt">от 13 900 ₽</p>
+            <p><small>Оптимально под устойчивый результат</small></p>
+            <div class="actions">
+              <a class="cta js-cta-book" href="https://wa.me/79990001122?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%205%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D0%B9" target="_blank" rel="noopener">Записаться</a>
+            </div>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:10px">Информация носит ознакомительный характер и не заменяет консультацию врача. Услуги не являются медицинскими.</p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2 class="sec-title">Частые вопросы</h2>
+        <div class="faq">
+          <details>
+            <summary>Больно ли при глубокой проработке?</summary>
+            <p>Нет. Я работаю глубоко, но бережно. Интенсивность согласуем на месте, ориентир — комфорт и расслабление, а не боль.</p>
+          </details>
+          <details>
+            <summary>Сколько нужно сеансов для заметного эффекта?</summary>
+            <p>Часто изменения ощущаются после 1 сессии. Для устойчивого результата обычно 3–5 встреч + простые домашние рекомендации.</p>
+          </details>
+          <details>
+            <summary>Противопоказания и подготовка?</summary>
+            <p>Острые воспаления, температура, кожные инфекции, тромбы, онкология в активной фазе и т.п. Перед сессией — не плотно есть за 1–1.5 часа, взять воду.</p>
+          </details>
+          <details>
+            <summary>Работа с последствиями травм — как это?</summary>
+            <p>Я не лечу диагнозы. Помогаю телу вернуть функциональные паттерны и комфорт движений, согласуя работу с вашим самочувствием и рекомендациями врача при необходимости.</p>
+          </details>
+          <details>
+            <summary>Можно ли совмещать с тренировками/сауной?</summary>
+            <p>Да, но с корректировкой нагрузок. Обычно — лёгкая активность в день сессии, сауна — на следующий день при хорошем самочувствии.</p>
+          </details>
+          <details>
+            <summary>Выезд на дом, оплата, отмена?</summary>
+            <p>В кабинет — стандартно; выезд — по договорённости. Оплата: наличные/перевод. Отмена — за 12 часов и ранее.</p>
+          </details>
+          <details>
+            <summary>Работа с беременными?</summary>
+            <p>Только после согласования с врачом и с учётом срока. Позиции и техники — щадящие.</p>
+          </details>
+          <details>
+            <summary>Как поддерживать результат?</summary>
+            <p>Дышим, двигаемся, соблюдаем 2–3 простые привычки, которые подберём на консультации. Контрольная встреча раз в 3–6 недель.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="sec-title">Обо мне</h2>
+        <div class="about">
+          <div class="card">
+            <h3>Мастер глубинных преобразований</h3>
+            <p>Мой путь — от тренерской практики к искусству прикосновения. Раньше я работал тренером по кинезиотерапии: этот опыт помогает тонко видеть паттерны движения и работать с первопричинами.</p>
+            <p>Комбинирую точность оценки движений, практичность тренера и чуткость массажиста. Главная цель — вернуть телу свободу и уверенность.</p>
+            <ul class="list">
+              <li>5+ лет практики</li>
+              <li>Глубокая проработка без боли</li>
+              <li>Индивидуальная стратегия под вашу задачу</li>
+            </ul>
+          </div>
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1584466977773-c47b1a95e49f?auto=format&fit=crop&w=1200&q=80" alt="Рабочий процесс: индивидуальная работа с клиентом" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog">
+      <div class="container">
+        <h2 class="sec-title">Польза и материалы</h2>
+        <div class="blog-list">
+          <a class="card" href="https://teletype.in/" target="_blank" rel="noopener">
+            <h3>Оценка движений простыми словами</h3>
+            <p>Зачем нужна, как проходит и что даёт.</p>
+          </a>
+          <a class="card" href="https://dzen.ru" target="_blank" rel="noopener">
+            <h3>Подготовка к моделирующему массажу</h3>
+            <p>Что учесть за день до и после.</p>
+          </a>
+          <a class="card" href="https://www.youtube.com/results?search_query=%D0%9C%D0%A4%D0%A0+%D0%B4%D0%BB%D1%8F+%D0%B4%D0%BE%D0%BC%D0%B0" target="_blank" rel="noopener">
+            <h3>МФР дома: 3 безопасные практики</h3>
+            <p>Ролик, мяч и дыхание — короткий план.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <div class="container">
+        <h2 class="sec-title">Контакты и запись</h2>
+        <div class="contact">
+          <div class="form">
+            <h3>Быстрая запись</h3>
+            <p class="muted">Выберите формат, укажите контакты — и нажмите «Записаться в WhatsApp». Сообщение сформируется автоматически.</p>
+            <form id="bookingForm">
+              <div class="field">
+                <label for="name">Имя</label>
+                <input id="name" name="name" type="text" placeholder="Ирина" required />
+              </div>
+              <div class="field">
+                <label for="phone">Телефон</label>
+                <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+7 999 123-45-67" required />
+              </div>
+              <div class="field">
+                <label for="service">Формат</label>
+                <select id="service" name="service" required>
+                  <option value="Восстановительная работа">Восстановительная работа</option>
+                  <option value="Моделирующий массаж">Моделирующий массаж</option>
+                  <option value="Спортивный / глубокотканный">Спортивный / глубокотканный</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="date">Желаемая дата</label>
+                <input id="date" name="date" type="date" />
+              </div>
+              <div class="field">
+                <label for="msg">Комментарий</label>
+                <textarea id="msg" name="msg" rows="3" placeholder="Удобное время, задачи, пожелания"></textarea>
+              </div>
+              <div class="actions">
+                <button type="submit" class="cta">Записаться в WhatsApp</button>
+                <a class="cta cta--ghost" id="tgShare" href="https://t.me/share/url?url=https%3A%2F%2Fren59.ru&text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BD%D0%B0%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E" target="_blank" rel="noopener">Написать в Telegram</a>
+              </div>
+              <div class="inline">
+                <span>Или позвонить:</span>
+                <a href="tel:+79990001122">+7 999 000‑11‑22</a>
+                <span>•</span>
+                <a href="mailto:hello@ren59.ru?subject=%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D0%BD%D0%B0%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E">hello@ren59.ru</a>
+              </div>
+              <p class="muted" style="margin-top:8px">
+                Отправляя заявку, вы соглашаетесь с <a href="#policy">политикой конфиденциальности</a>.
+              </p>
+            </form>
+          </div>
+          <div>
+            <div class="card">
+              <h3>Где проходит</h3>
+              <p>Пермь, центр города. Точный адрес — при записи.</p>
+              <div class="actions">
+                <a class="cta cta--ghost" href="https://yandex.ru/maps/50/perm/?ll=56.229398%2C58.010321&z=12" target="_blank" rel="noopener">Открыть в Яндекс.Картах</a>
+                <a class="cta cta--ghost" href="https://2gis.ru/perm/search/%D0%BC%D0%B0%D1%81%D1%81%D0%B0%D0%B6%20%D0%9F%D0%B5%D1%80%D0%BC%D1%8C" target="_blank" rel="noopener">2ГИС</a>
+              </div>
+            </div>
+            <div class="card" style="margin-top:18px">
+              <h3>Мессенджеры</h3>
+              <p>
+                WhatsApp: <a href="https://wa.me/79990001122" target="_blank" rel="noopener">wa.me/79990001122</a><br/>
+                Telegram: <a href="https://t.me/share/url?url=https%3A%2F%2Fren59.ru&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BD%D0%B0%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E" target="_blank" rel="noopener">написать</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:8px">
+          <div class="brand__logo" aria-hidden="true"></div>
+          <div>Евгений — массаж в Перми</div>
+        </div>
+        <p>Глубокая бережная работа с телом. Без медицинских обещаний.</p>
+        <p class="muted">© <span id="y"></span> Евгений</p>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <p>
+          Тел: <a href="tel:+79990001122">+7 999 000‑11‑22</a><br/>
+          Email: <a href="mailto:hello@ren59.ru?subject=%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D0%BD%D0%B0%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E">hello@ren59.ru</a><br/>
+          WhatsApp: <a href="https://wa.me/79990001122" target="_blank" rel="noopener">wa.me/79990001122</a>
+        </p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <p>
+          <a href="#services">Услуги</a><br/>
+          <a href="#process">Как проходит</a><br/>
+          <a href="#reviews">Отзывы</a><br/>
+          <a href="#pricing">Цены</a><br/>
+          <a href="#faq">FAQ</a>
+        </p>
+      </div>
+      <div>
+        <h4>Юридическая информация</h4>
+        <p id="policy" class="muted">
+          Услуги не являются медицинскими и не заменяют консультацию врача. При острых состояниях — к врачу.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MassageTherapist",
+    "name": "Евгений — массаж в Перми",
+    "url": "https://ren59.ru",
+    "telephone": "+7-999-000-11-22",
+    "areaServed": "Пермь",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Пермь",
+      "addressCountry": "RU"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "10:00",
+      "closes": "21:00"
+    }],
+    "sameAs": [
+      "https://wa.me/79990001122",
+      "https://yandex.ru/maps/50/perm/",
+      "https://2gis.ru/perm/search/%D0%BC%D0%B0%D1%81%D1%81%D0%B0%D0%B6%20%D0%9F%D0%B5%D1%80%D0%BC%D1%8C",
+      "https://vk.com"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Услуги массажа",
+      "itemListElement": [
+        {"@type":"Offer","name":"Восстановительная работа"},
+        {"@type":"Offer","name":"Моделирующий массаж"},
+        {"@type":"Offer","name":"Спортивный / глубокотканный"}
+      ]
+    }
+  }
+  </script>
+
+  <script>
+    // CONFIG: замените на свои данные при необходимости
+    const CONFIG = {
+      waNumber: '79990001122', // без +
+      siteUrl: 'https://ren59.ru'
+    };
+
+    // Формирование сообщения для WhatsApp из формы
+    const form = document.getElementById('bookingForm');
+    const tgShare = document.getElementById('tgShare');
+    const year = document.getElementById('y');
+    if (year) year.textContent = new Date().getFullYear();
+
+    function buildMessage() {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const date = document.getElementById('date').value;
+      const msg = document.getElementById('msg').value.trim();
+
+      const parts = [
+        'Здравствуйте!',
+        'Хочу записаться на сессию.',
+        `Формат: ${service}`,
+        name ? `Имя: ${name}` : '',
+        phone ? `Телефон: ${phone}` : '',
+        date ? `Желаемая дата: ${date}` : '',
+        msg ? `Комментарий: ${msg}` : ''
+      ].filter(Boolean);
+
+      return encodeURIComponent(parts.join('\n'));
+    }
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const text = buildMessage();
+        const wa = `https://wa.me/${CONFIG.waNumber}?text=${text}`;
+        window.open(wa, '_blank', 'noopener');
+      });
+    }
+
+    if (tgShare) {
+      tgShare.addEventListener('click', (e) => {
+        const textDecoded = decodeURIComponent(buildMessage());
+        const tg = `https://t.me/share/url?url=${encodeURIComponent(CONFIG.siteUrl)}&text=${encodeURIComponent(textDecoded)}`;
+        tgShare.setAttribute('href', tg);
+      });
+    }
+
+    // Плавный скролл для якорных ссылок
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const id = this.getAttribute('href');
+        if(id.length>1){
+          e.preventDefault();
+          const el = document.querySelector(id);
+          if(el){ window.scrollTo({top:el.offsetTop-64, behavior:'smooth'}); }
+        }
+      })
+    });
+  </script>
+</body>
+</html>
+```
+
+Хотите, чтобы я:
+- Подставил ваш реальный номер WhatsApp/телефон, почту и адрес в Перми?
+- Включил виджет онлайн-записи (Yclients/Cal.com) вместо WhatsApp?
+- Добавил реальные отзывы с Яндекс/2ГИС и фото кабинета?
